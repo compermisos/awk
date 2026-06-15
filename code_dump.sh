@@ -4,7 +4,7 @@ echo "Hola Mundo Awk [de un archivo]"> awk_data/first.txt
 awk '{print $0}' awk_data/first.txt
 awk '{print $2}' awk_data/first.txt
 awk -F'[][]' '{print $2}' awk_data/first.txt
-wget -O awk_data/access_log http://www.almhuette-raith.at/apache-log/access.log
+wget -O awk_data/access_log https://web.archive.org/web/20201112014336if_/http://www.almhuette-raith.at/apache-log/access.log
 #uniq alternative from https://stackoverflow.com/questions/32364102/finding-a-uniq-c-substitute-for-big-files
 cat awk_data/access_log | awk '{ print $1;}' |  awk '{ipcount[$0]++} END {for (line in ipcount) print ipcount[line], line}' |sort -n  | tail -n10
 cat awk_data/access_log | awk -F'[ "]+' '$7 == "/" { ipcount[$1]++ } END {for (line in ipcount) print ipcount[line], line}' |sort -n  | tail -n10
